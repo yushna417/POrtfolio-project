@@ -107,7 +107,7 @@ const App = () => {
             />
           </Header>
           <Content
-            className="bg-[#F7F7F7]  mt-[9px]  rounded-t-lg shadow-2xl p-5"
+            className="bg-[#F7F7F7]  mt-[9px]  rounded-t-lg shadow-2xl p-5 mx-10"
             
           >
             <Home />
