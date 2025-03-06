@@ -7,7 +7,7 @@ import {
   UserOutlined,
   MehOutlined
 } from '@ant-design/icons';
-import {Breadcrumb, Button, Layout, Menu, theme } from 'antd';
+import { Button, Layout, Menu, theme, ConfigProvider } from 'antd';
 
 
 const { Header, Sider, Content } = Layout;
@@ -35,16 +35,30 @@ const items = [
 const App = () => {
   const [collapsed, setCollapsed] = useState(false);
   const {
-    token: { colorBgContainer, borderRadiusLG},
+    token: { colorBgContainer, bodyBg},
   } = theme.useToken();
   return (
-    <Layout className='bg-green-300'>
+    <ConfigProvider
+      theme={{
+        token: {
+          // Seed Token
+          colorPrimary: '#27667B',
+          borderRadius: 2,
+          bodyBg: '#C7D9DD',
+          
+          // Alias Token
+          colorBgContainer: '#ADB2D4',
+        },
+      }}
+    >
+    
+    <Layout >
       <Sider trigger={null} collapsible collapsed={collapsed}
       className='w-60 h-[100vh] pt-5 sticky'>
-        <div className='px-5 h-12 text-white font-black text-2xl font-serif ' >
-          {collapsed?<MehOutlined/> : <><MehOutlined/> yushna417</> }</div>
+        <div className='px-5 h-12 text-white font-black text-xl montserrat-custom  tracking-wider' >
+          {collapsed?<MehOutlined/> : <><MehOutlined/> PortFolio</> }</div>
         <Menu
-          className='text-base font-normal  font-sans'
+          className='text-base font-normal montserrat-custom  '
           theme="dark"
           mode="inline"
           defaultSelectedKeys={['1']}
@@ -57,7 +71,8 @@ const App = () => {
             padding: 0,
             background: colorBgContainer,
           }}
-          className='bg-green-400 w-full border'
+          className=' w-[83vw] border   shadow-2xl '
+          
         >
           <Button
             type="text"
@@ -68,23 +83,19 @@ const App = () => {
               width: 64,
               height: 64,
             }}
+            className='text-white'
            
           />
         </Header>
         <Content
-        className='bg-green-300'
-         style={{
-          margin: '24px 16px',
-          padding: 24,
-          minHeight: 280,
-          background: colorBgContainer,
-          borderRadius: borderRadiusLG,
-        }}
+        className='bg-[#F7F7F7] indie-flower-regular mt-[9px] mx-5 max-w-5xl w-[80vw] h-full border-2 rounded-t-lg shadow-2xl p-5'
+         
         >
-          Content
+          Content, Hi, this is going to be the content of the page
         </Content>
       </Layout>
     </Layout>
+    </ConfigProvider>
   );
 };
 export default App;
