@@ -86,13 +86,17 @@ const App = () => {
             items={items}
           />
         </Sider>
-        <Layout >
+        <Layout className='relative' >
           <Header
             style={{
               padding: 0,
               background: colorBgContainer,
+              position: 'sticky',
+              top: 0,
+              zIndex: 1,
+              width: '100%',
             }}
-            className="w-full shadow-2xl"
+            className="w-full shadow-2xl sticky"
           >
             <Button
               type="text"
